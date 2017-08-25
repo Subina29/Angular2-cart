@@ -1,0 +1,19 @@
+<div class="container-fluid">
+	<section *ngFor="let feat of featItems" class="featured row">
+		<article class="info col-sm-12 col-md-12 col-lg-3">
+			<h2>{{feat.tagLine}}</h2>
+			<p>{{feat.items}}</p>
+			<button class="btn btn-secondary" routerLink="/{{feat.productLink}}">{{feat.productLinkText}}</button>
+			<!--<a routerLink="{{feat.productLink}}">Shop for it now!</a>-->
+		</article>
+		<article class="hidden-md-down col-lg-3">
+			<a routerLink="/{{feat.productLink1}}"><img class="img-fluid" src="{{feat.img1}}" /></a>
+		</article>
+		<article class="hidden-md-down col-lg-3">
+			<a routerLink="/{{feat.productLink2}}"><img class="img-fluid" src="{{feat.img2}}" /></a>
+		</article>
+		<article class="hidden-md-down col-lg-3">
+			<a routerLink="/{{feat.productLink3}}"><img class="img-fluid" src="{{feat.img3}}" /></a>
+		</article>
+	</section>
+</div>

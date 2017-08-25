@@ -1,0 +1,40 @@
+<div class="container">
+	<nav class="navbar navbar-toggleable-md navbar-light navbar-fixed-top">
+		<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse row" id="navbarCollapse">
+			<a class="navbar-brand" href="#"> </a>
+			<ul class="navbar-nav col-md-12">
+				<li class="nav-item col-md-2">
+					<!--<a (click)="onClick($event)" href="#">Departments</a>-->
+					<a class="nav-link" routerLink="/showHome" routerLinkActive="active">Home</a>
+					<!--<ul [hidden]="showDept">
+						<li *ngFor="let dep of depts">
+						<a href="#{{dep.id}}" class="dropdown-item">{{dep.name}}</a>
+						</li>
+					</ul>-->
+				</li>
+				<li class="nav-item col-md-2">
+					<a class="nav-link" routerLink="/showProducts" routerLinkActive="active">Products</a>
+				</li>
+				<li class="nav-item col-md-2">
+					<a class="nav-link" routerLink="/showAbout" routerLinkActive="active">About Us</a>
+				</li>
+				<li class="nav-item col-md-2">
+					<a class="nav-link" routerLink="/showCareers" routerLinkActive="active">Careers</a>
+				</li>
+				<li class="nav-item col-md-2">
+					<a class="nav-link" routerLink="/showLogin" routerLinkActive="active">Log In</a>
+				</li>
+				<li class="nav-item col-md-2">
+					<a class="nav-link" routerLink="/showCart" routerLinkActive="active">Cart</a>
+				</li>
+			</ul>
+		</div>
+		
+	</nav>
+</div>
+
+	

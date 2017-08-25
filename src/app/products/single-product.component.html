@@ -1,0 +1,26 @@
+<section class="row singleProduct main-container">
+	<div class="container">
+		<article class="row">
+			<figure class="col-xs-12 col-sm-12 col-md-3">
+				<img class="img-fluid" src="{{product.itemImage}}" />
+			</figure>
+			<figcaption class="col-xs-12 col-sm-12 col-md-9">
+				<h2>{{product.itemName}}</h2>
+				<p>{{product.itemCategory}}</p>
+				<div>
+					<p>
+						<b [hidden]="product.itemPriceDollars==0? true : false">${{product.itemPriceDollars}}
+							<sup [innerHTML]="product.itemPriceCents==0? '00' : product.itemPriceCents"></sup>
+						</b>
+						<b [hidden]="product.itemPriceDollars==0? false : true">{{product.itemPriceCents}}¢</b>
+					</p>
+					<my-counter [(countr)]="firstCount"></my-counter>
+					<p>
+						<button class="btn btn-secondary" (click)="addToCart(product.itemID, $event)" [ngClass]="{'hidden': product.itemID === hideElem}">Add to cart</button>
+						<button [ngClass]="{'hidden': !(product.itemID === hideElem)}" class="btn btn-success" routerLink="/showCart">Show Cart</button>
+					</p>
+				</div>
+			</figcaption>
+		</article>
+	</div>
+</section>

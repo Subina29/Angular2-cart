@@ -1,0 +1,17 @@
+<header class="row">
+	<div class="container">
+		<div class="row">
+			<h1 class="col-xs-12 col-sm-12 col-md-6">
+				<a class="noLink" routerLink="/showHome">{{title}}</a>
+			</h1>
+			<div class="col-md-6 search-container">
+				<input type="search" #searchVal (keyup.enter)="findProd(searchVal.value)">
+				<button class="btn btn-secondary" (click)="findProd(searchVal.value)">Search</button>
+				
+			</div>
+		</div>
+		<div class="text-center search" *ngIf="searchValue"><b>Search for {{searchValue}}</b></div>
+		<main-nav></main-nav>
+	</div>
+	
+</header>

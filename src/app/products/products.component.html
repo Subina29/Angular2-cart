@@ -1,0 +1,57 @@
+<section class="main-container row">
+	<div class="container">
+		<form novalidate>
+			<article class="row">
+				<aside class="col-xs-12 col-sm-12 col-md-3">
+					<h3>Filter by</h3>
+					<div class="dropdown">
+						<label class="hidden">Select Category</label>
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Category
+					  </button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <a class="dropdown-item" href="#" (click)="onClick($event)">All</a>
+					    <a class="dropdown-item" href="#" (click)="onClick($event)">Furnishings</a>
+					    <a class="dropdown-item" href="#" (click)="onClick($event)">Watches</a>
+					    <a class="dropdown-item" href="#" (click)="onClick($event)">Paintings</a>
+					    <a class="dropdown-item" href="#" (click)="onClick($event)">Gym</a>
+					  </div>
+						<!--<select (change)="onSelect(category.value)" #category>
+							<span class="arrow-down"></span>
+							<option disabled>Category</option>
+							<option value="Furnishings">Furnishings</option>
+							<option value="Watches">Watches</option>
+							<option value="Paintings">Paintings</option>
+							<option value="Gym">Gymming Equipments</option>
+						</select>-->
+					</div>
+				</aside>
+				<article class="col-xs-12 col-sm-12 col-md-9 row">
+					<p class="col-md-12" [hidden]="filterItem=='' ? true : false">Filter by <b><i>{{filterItem}}</i></b></p>
+					<div class="col-xs-12 col-sm-12 col-md-3 prodDetailSect" *ngFor="let pr of storeItems, let i = index">
+						<a (click)="showDetails(pr.itemID)">
+							<figure>
+								<img class="img-fluid" src="{{pr.itemImage}}">
+							</figure>
+							<figcaption>
+								{{pr.itemName}}
+							</figcaption>
+						</a>
+						<p>
+							<b [hidden]="pr.itemPriceDollars==0? true : false">${{pr.itemPriceDollars}}
+							<sup [innerHTML]="pr.itemPriceCents==0? '00' : pr.itemPriceCents"></sup>
+							</b>
+							<b [hidden]="pr.itemPriceDollars==0? false : true">{{pr.itemPriceCents}}¢</b>
+						</p>
+						<p>
+						  <button (click)="addToCart(pr.itemID, $event)" [ngClass]="{'hidden': pr.itemID === hideElem}" class="btn btn-secondary">Add to Cart</button>
+						  <button [ngClass]="{'hidden': !(pr.itemID === hideElem)}" class="btn btn-secondary btn-success" routerLink="/showCart">Show Cart</button>
+						</p>
+					</div>
+				</article>
+			</article>
+		</form>
+	</div>
+</section>
+
+

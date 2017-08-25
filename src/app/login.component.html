@@ -1,0 +1,35 @@
+<section class="row main-container">
+	<div class="container centerForm">
+	<form novalidate [formGroup]="loginForm" (ngSubmit)="onSubLog(loginForm)">
+		<h2 class="text-center">Login</h2>
+		<div class="row">
+			<div class="col-12 form-group"> 
+				<label for="email" class="col-12">Email</label>
+				<div class="col-12">
+					<input type="email" name="email" id="email" class="form-control" formControlName="email" />
+					<div class="alert alert-danger" *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched">
+						Email is required
+					</div>
+					<div class="alert alert-danger" *ngIf="loginForm.get('email').hasError('incorrectMailFormat')">
+						Valid Email is required
+					</div>
+				</div>
+			</div>
+			<div class="col-12 form-group">
+				<label for="password" class="col-12">Password</label>
+				<div class="col-12">
+					<input type="password" name="Password" id="password" class="form-control" formControlName="password" />
+					<div class="alert alert-danger" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+						Password is required
+					</div>
+				</div>
+			</div>
+			<div class="col text-center">
+				<button class="btn btn-primary" [disabled]="!loginForm.valid">Log In</button>
+				<p>New user? <a routerLink="/signIn" routerLinkActive="active">Sign In</a></p>
+			</div>
+		</div>
+	</form>
+</div>
+</section>
+
