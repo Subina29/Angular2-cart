@@ -41,7 +41,6 @@ export class ItemService {
 	}
 
 	addItem(id:number, numbr:number=1):void {
-		console.log("num of items "+numbr);
 		let item = PRODUCTS.find(ob => ob.itemID === id);
 		if(this.selectedItems.indexOf(item) < 0) {
 			this.selectedItems.push(item);
@@ -57,9 +56,6 @@ export class ItemService {
 	      );
 	    }
 		}
-		console.log(this.selectedItems);
-		console.log(this.itemArr);
-		//this.getCount();
 	}
 
 	getCount():number {
@@ -73,19 +69,13 @@ export class ItemService {
 	updateCount(iCode:number, change:number):void {
 		for(let x in this.itemArr) {
 			if(this.itemArr[x].itemSelectedID === iCode) {
-				console.log("count of item ")
-				console.log(this.itemArr[x].numOfItem)
 				this.itemArr[x].numOfItem+= change;
 			}
 		}
-		console.log("updated ");
-    console.log(this.itemArr)
 	}
 
 	calculateTotalCost():number {
 		this.totalCost = 0;
-		console.log("calculate ");
-		console.log(this.itemArr);
 		for(var i=0; i<this.itemArr.length; i++) {
       this.totalCost += (this.itemArr[i].pricePerUnit * this.itemArr[i].numOfItem);
     }
